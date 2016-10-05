@@ -1,0 +1,39 @@
+<%= form_for(@filme) do |f| %>
+  <% if @filme.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@filme.errors.count, "error") %> prohibited this filme from being saved:</h2>
+
+      <ul>
+      <% @filme.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titulo %><br>
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :genero %><br>
+    <%= f.text_field :genero %>
+  </div>
+  <div class="field">
+    <%= f.label :ator %><br>
+    <%= f.text_field :ator %>
+  </div>
+  <div class="field">
+    <%= f.label :preco %><br>
+    <%= f.text_field :preco %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <div>
+      <%= f.label :foto %>
+      <%= image_tag @filme.foto_url, class: 'foto' if @filme.foto? %>
+      <%= f.file_field :foto, label: 'Foto' , input_html: {accept: ('application/jpg') } %>
+  <br/>
+</div>
+<% end %>
