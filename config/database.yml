@@ -5,7 +5,7 @@ default: &default
 
 development:
   <<: *default
-  database: rafael_devl
+  database: rafael_devp
 
 test:
   <<: *default
